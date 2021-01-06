@@ -31,7 +31,6 @@ export default createSlice({
   reducers: {
     editCell: (state, action) => {
       const value = action.payload.value
-      console.log('value', value.toLowerCase())
       if (typeof value === 'string' && value.toLowerCase().match(/sum of [a-z]\d:[a-z]\d/g)) {
         // sum formula
         const formula = value.toLowerCase()
@@ -54,7 +53,6 @@ export default createSlice({
             // set proppagation
             state.data[`${from[0]}${i}`].propagation[action.payload.cell] = formula
           }
-          console.log('set sum', sum)
           // update sum
           state.data[action.payload.cell].value = sum
         } catch (error) {
